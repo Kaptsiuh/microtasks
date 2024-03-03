@@ -1,22 +1,79 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { NewComponent } from "./components/NewComponent";
+import { Button } from "./components/Button";
 
 function App() {
-  const [students, setStudents] = useState([
-    { id: 1, name: "James", age: 8 },
-    { id: 2, name: "Robert", age: 18 },
-    { id: 3, name: "John", age: 28 },
-    { id: 4, name: "Michael", age: 38 },
-    { id: 5, name: "William", age: 48 },
-    { id: 6, name: "David", age: 58 },
-    { id: 7, name: "Richard", age: 68 },
-    { id: 8, name: "Joseph", age: 78 },
-    { id: 9, name: "Thomas", age: 88 },
-    { id: 10, name: "Charles", age: 98 },
-    { id: 11, name: "Christopher", age: 100 },
-  ]);
-  return <NewComponent students={students} />;
+  // const myFirstSubscriber = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   console.log("Hell 3");
+  // };
+  // const myFirstSubscriber2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   console.log("Hell 5");
+  // };
+
+  // const onClickHundler = (name: string): void => {
+  //   console.log(name);
+  // };
+
+  // const foo1 = () => {
+  //   console.log(100200);
+  // };
+
+  // const foo2 = (number: number) => {
+  //   console.log(number);
+  // };
+
+  const Button1Foo = (subscriber: string, age: number, address: string) => {
+    console.log(subscriber, age, address);
+  };
+
+  const Button2Foo = (subscriber: string) => {
+    console.log(subscriber);
+  };
+
+  const Button3Foo = () => {
+    console.log("Im stupid button");
+  };
+
+  return (
+    <>
+      {/* <button
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+          onClickHundler("Dima")
+        }
+      >
+        MyYouTube Chanel 1
+      </button>
+      <button
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+          onClickHundler("Dimon")
+        }
+      >
+        MyYouTube Chanel 2
+      </button> */}
+
+      {/* <button onClick={foo1}>1</button>
+      <button
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => foo2(100200)}
+      >
+        2
+      </button> */}
+      <Button
+        title={"MyYouTubeChanel 1"}
+        callBack={() => Button1Foo("im Dima", 21, "Lodz")}
+      />
+      <Button
+        title={"MyYouTubeChanel 2"}
+        callBack={() => Button2Foo("im Dimas")}
+      />
+      <Button
+        title={"Stupid"}
+        callBack={() => {
+          Button3Foo();
+        }}
+      />
+    </>
+  );
 }
 
 export default App;
